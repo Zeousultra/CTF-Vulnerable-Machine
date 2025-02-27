@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Setting Up the Cron Job for Privilege Escalation
 
 # Step 1: Create the Vulnerable Script
