@@ -18,7 +18,7 @@ Welcome to the **Hard Linux CTF Machine**, a custom-built vulnerable machine des
 ## Download & Setup
 Due to GitHub's file size limitations, download the virtual machine from the link below:
 
-🔗 **[Download the VM - Google Drive](https://drive.google.com/your-link-here)**
+🔗 **[Download the VM - Google Drive](https://drive.google.com/file/d/1GZzrimgIg6WFpvEwdWVzxBtZeqnBqLru/view?usp=drive_link)**
 
 ### Importing the VM
 1. Download the `.ova` file from the above link.
